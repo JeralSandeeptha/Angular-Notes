@@ -27,3 +27,22 @@ npm install -g @angular/cli
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
+## Create Project
+
+To create a new project
+
+```bash
+ng new MyProject
+```
+
+After that we need to add node modules
+
+```bash
+npm install
+```
+
+To start a local development server, run:
+
+```bash
+ng serve
+```
