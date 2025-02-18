@@ -413,6 +413,7 @@ interface User{
 }
 ```
 
+Parent Component
 ```js
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -440,6 +441,7 @@ export class AppComponent {
 <app-user [user]="user"/>
 ```
 
+Child Component
 ```js
 import { Component, Input } from '@angular/core';
 import { User } from '../../types/types';
@@ -468,6 +470,61 @@ export class UserComponent {
 
 2. Child to Parent data passing
 For this we should use @Output Decorator
+
+Child Component
+```js
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { UserComponent } from "./components/user/user.component";
+import { SearchbarComponent } from "./components/searchbar/searchbar.component";
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, SearchbarComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  searchText = '';
+
+  setSearchText(value: string) {
+    this.searchText = value;
+  }
+}
+```
+```html
+<input type="text" #input>
+<button (click)="handleClick(input.value)">Click</button>
+```
+
+Parent Component
+```js
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { UserComponent } from "./components/user/user.component";
+import { SearchbarComponent } from "./components/searchbar/searchbar.component";
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, SearchbarComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  searchText = '';
+
+  setSearchText(value: string) {
+    this.searchText = value;
+  }
+}
+```
+```html
+<app-searchbar (searchText)="setSearchText($event)"/>
+
+<h1>{{ searchText }}</h1>
+```
 
 ---
 
