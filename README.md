@@ -25,6 +25,12 @@ For install the Angular CLI,
 npm install -g @angular/cli
 ```
 
+To see the angular cli version
+
+```bash
+ng version
+```
+
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ## Create Project
@@ -46,3 +52,12 @@ To start a local development server, run:
 ```bash
 ng serve
 ```
+
+## Folder Structure
+
+- node_modules - holds all the dependencies of the project
+- public - holds static content of the project
+- src - holds the all the code base files related to the project
+- package.json - holds all the dependencies for the project
+- package-lock.json - holds the logs for the package.json file
+- tsconfig files - holds the configurations for the Typescript
