@@ -14,6 +14,9 @@
 ## Prerequisites
 
 For work with the angular first we need to have Nodejs install in your computer
+[Download Nodejs](https://nodejs.org/en)
+
+---
 
 ## Get Started
 
@@ -33,6 +36,8 @@ ng version
 ```
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page
+
+---
 
 ## Create Project
 
@@ -65,6 +70,8 @@ http://localhost:4200/
 
 If you are using powershell sometimes we need to allow some policies. If not use different CLI.
 
+---
+
 ## Folder Structure
 
 - node_modules - holds all the dependencies of the project
@@ -74,6 +81,8 @@ If you are using powershell sometimes we need to allow some policies. If not use
 - package-lock.json - holds the logs for the package.json file
 - tsconfig files - holds the configurations for the Typescript
 - angular.json - holds the configurations for Angular
+
+---
 
 ## Angular Components
 
@@ -107,6 +116,8 @@ export class NavbarComponent {
 ```
 
 This is a basic component.
+
+---
 
 ## Data Binding
 
