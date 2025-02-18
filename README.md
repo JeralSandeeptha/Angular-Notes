@@ -8,6 +8,8 @@
 - [Folder Structure](#folder-structure)
 - [Angular Components](#angular-components)
 - [Data Binding](#data-binding)
+- [Angular Components](#angular-components)
+- [Directives](#directives)
 
 ---
 
@@ -122,11 +124,13 @@ This is a basic component.
 ## Data Binding
 
 Angular Data Binding is 2 types.
+- One way data binding
+- Two way data binding
 
 ### One way data binding 
 
 1. Interpolation
-With this we can bind 
+- With this we can use these as variables
 ```html
 <h1>My name is {{ name }} </h1>
 ```
@@ -146,10 +150,147 @@ export class AppComponent {
 ```
 
 2. Class Binding
+- We can handle classes of an element with variables.
+```html
+<button [class.active]="isActive">Click</button>
+```
+```scss
+.active {
+  background-color: red;
+}
+```
+```js
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
-3. Attribute Binding
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  isActive = true;
+}
+```
+
+3. Property Binding
+- We can handle properties of an element with variables.
+```html
+<img [src]="imageLink" alt="image">
+```
+```js
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  imageLink = 'https://hips.hearstapps.com/hmg-prod/images/little-cute-maltipoo-puppy-royalty-free-image-1652926025.jpg?crop=0.444xw:1.00xh;0.129xw,0&resize=980:*';
+  
+}
+```
 
 4. Style Binding
+- We can dynamically change the styles
+```html
+<h1 [style.font-size]="fontSize">Hello Jeral Sandeeptha</h1>
+```
+```scss
+.active {
+  background-color: red;
+}
+```
+```js
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  fontSize = '50px';
+}
+```
+
+5. Attribute Binding
+```html
+<button [attr.role]="task">Click</button>
+```
+```js
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  task = 'role';
+
+}
+```
+
+5. Event Binding
+- We can attach js functions to the HTML
+```html
+<button (click)="handleClick()">Click</button>
+```
+```js
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  handleClick() {
+    console.log('Hello');
+  }
+}
+```
 
 ### Two way data binding
+
+```html
+<h1>{{ name }}</h1>
+<input type="text" [(ngModel)]="name">  <!-- Correct syntax -->
+```
+```js
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Import FormsModule correctly
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true, // Required for standalone components
+  imports: [RouterOutlet, FormsModule], // Ensure FormsModule is imported
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  name: string = ''; // Define name property
+}
+```
+
+---
+
+## Directives
 
