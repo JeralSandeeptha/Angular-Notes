@@ -9,10 +9,15 @@
 - [Angular Components](#angular-components)
 - [Data Binding](#data-binding)
 - [Template Variables](#angular-components)
+- [Routing](#routing)
+- [Components Relationships](#components-relationships)
 - [Directives](#directives)
-- [Forms](#forms)
 - [Services](#services)
+- [Forms](#forms)
 - [Interceptors](#interceptors)
+- [Feature Modules](#feature-modules)
+- [State Management](#state-management)
+- [Testing](#testing)
 
 ---
 
@@ -321,6 +326,71 @@ export class AppComponent {
 }
 ```
 
+---
+
+## Routing
+
+Main routing file is app.route.ts file. We defined all the routes in here.
+
+We should import related router modules.
+
+```js
+import { Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+
+export const routes: Routes = [
+  // first one is to redirect
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // Basic pages
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  // This is for not found page should be in the last
+  { path: '**', component: NotfoundComponent },
+];
+```
+```html
+<!-- routerLinkActive for active class -->
+<ul>
+  <li>
+    <a routerLinkActive="active" routerLink="/home">Home</a>
+    <a routerLinkActive="active" routerLink="/contact">contact</a>
+    <a routerLinkActive="active" routerLink="/about">About</a>
+  </li>
+</ul>
+<router-outlet />
+```
+```scss
+ul {
+  list-style: none;
+
+  li {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid red;
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.active {
+  color: black;
+  background-color: red;
+}
+```
+
+---
+
 ## Directives
 
+---
+
 ## Forms
+
+---
