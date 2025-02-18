@@ -473,23 +473,22 @@ For this we should use @Output Decorator
 
 Child Component
 ```js
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { UserComponent } from "./components/user/user.component";
-import { SearchbarComponent } from "./components/searchbar/searchbar.component";
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, SearchbarComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  selector: 'app-searchbar',
+  imports: [],
+  templateUrl: './searchbar.component.html',
+  styleUrl: './searchbar.component.scss'
 })
-export class AppComponent {
+export class SearchbarComponent {
 
-  searchText = '';
+  @Output()
+  searchText = new EventEmitter<string>();
 
-  setSearchText(value: string) {
-    this.searchText = value;
+  handleClick(value: string) {
+    console.log(value);
+    this.searchText.emit(value);
   }
 }
 ```
@@ -532,6 +531,30 @@ export class AppComponent {
 
 ---
 
+## Pipes
+
+---
+
+## Services
+
+---
+
 ## Forms
+
+---
+
+## Interceptors
+
+---
+
+## Feature Modules
+
+---
+
+## State Management
+
+---
+
+## Testing
 
 ---
