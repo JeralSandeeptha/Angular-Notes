@@ -12,6 +12,7 @@
 - [Routing](#routing)
 - [Components Relationships](#components-relationships)
 - [Directives](#directives)
+- [Pipes](#pipes)
 - [Services](#services)
 - [Forms](#forms)
 - [Interceptors](#interceptors)
@@ -384,6 +385,89 @@ ul {
   background-color: red;
 }
 ```
+
+---
+
+## Components Relationships
+
+We can pass the data through components.
+
+From this concept we can create reusbale components.
+
+For that we can use two things.
+- Parent To Child 
+- Child To Parent
+
+1. Parent to Child data passing
+For this we should use @Input Decorator
+
+I have App component. Wanted to pass user data to user component.
+
+This is the user type.
+```js
+interface User{
+  fname: string,
+  lname: string,
+  mobile: string,
+  nic: string,
+}
+```
+
+```js
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { UserComponent } from "./components/user/user.component";
+import { User } from './types/types';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, UserComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  user: User = {
+    fname: 'Yohan',
+    lname: 'Sandeepa',
+    mobile: '0778250712',
+    nic: '200015003010'
+  }
+
+}
+```
+```html
+<app-user [user]="user"/>
+```
+
+```js
+import { Component, Input } from '@angular/core';
+import { User } from '../../types/types';
+
+@Component({
+  selector: 'app-user',
+  imports: [],
+  templateUrl: './user.component.html',
+  styleUrl: './user.component.scss'
+})
+export class UserComponent {
+
+  @Input() user: User = {
+    fname: '',
+    lname: '',
+    nic: '',
+    mobile: ''
+  };
+}
+```
+```html
+<h1>{{ user.fname }} {{ user.lname }}</h1>
+<h1>{{ user.nic }}</h1>
+<h1>{{ user.mobile }}</h1>
+```
+
+2. Child to Parent data passing
+For this we should use @Output Decorator
 
 ---
 
