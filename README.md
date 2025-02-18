@@ -1,5 +1,4 @@
 # Angular
----
 
 ## Table of Contents
 
