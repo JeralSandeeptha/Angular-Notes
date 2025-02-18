@@ -10,4 +10,8 @@
 
 ---
 
+## Prerequisites
+
+For work with the angular first we need to have Nodejs install in your computer.
+
 
