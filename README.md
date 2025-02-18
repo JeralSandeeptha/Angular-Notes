@@ -297,6 +297,29 @@ export class AppComponent {
 
 ## Template Variables
 
+We can attach a variable to the a html template.
+Then we can use that variable for access different variables.
+```html
+<input type="text" #inputVariable>
+<button (click)="handleClick(inputVariable.value)" >Submit</button>
+```
+```js
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+
+  handleClick(value: any) {
+    console.log(value);
+  }
+}
+```
 
 ## Directives
 
