@@ -8,8 +8,11 @@
 - [Folder Structure](#folder-structure)
 - [Angular Components](#angular-components)
 - [Data Binding](#data-binding)
-- [Angular Components](#angular-components)
+- [Template Variables](#angular-components)
 - [Directives](#directives)
+- [Forms](#forms)
+- [Services](#services)
+- [Interceptors](#interceptors)
 
 ---
 
@@ -292,5 +295,7 @@ export class AppComponent {
 
 ---
 
-## Directives
+## Template Variables
 
+
+## Directives
